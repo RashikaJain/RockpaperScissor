@@ -1,27 +1,48 @@
 //define the function playround
-function playround(humanChoice , computerChoice)
+function playGround(humanChoice , computerChoice)
 {
-    let humanScore = 0 ; 
     let computerScore = 0 ; 
-    const humanChoiceInsensitive = humanChoice.toLowerCase() ; 
-    if(humanChoiceInsensitive=== computerChoice)
-    { 
-        console.log("It's a tie..But you played well!!") ; 
+    let humanScore = 0 ; 
+
+    for(let i = 0 ; i< 5 ; i++){
+        const humanChoiceInsensitive = humanChoice.toLowerCase() ; 
+        if(humanChoiceInsensitive=== computerChoice)
+        { 
+            console.log("It's a tie..But you played well!!") ; 
+        }
+        else if((humanChoiceInsensitive == "rock" && computerChoice == "paper") || (humanChoiceInsensitive== "scissors" && computerChoice == "rock") || 
+        (humanChoiceInsensitive == "paper" && computerChoice == "scissors"))
+        {
+            computerScore +=1 ; 
+            console.log("You lose!! You choses" , computerChoice  , "beats" , humanChoice) ; 
+        }
+        else
+        {
+            humanScore +=1 ; 
+            console.log("It's a Win..Hurray!! " , humanChoice , "beats" , computerChoice ) ; 
+        } 
+        if(i!==4)
+        {
+            humanChoice =     getHumanChoice()
+            computerChoice =   getComputerChoice() ; 
+        }
     }
-    else if((humanChoiceInsensitive == "rock" && computerChoice == "paper") || (humanChoiceInsensitive== "scissors" && computerChoice == "rock") || 
-    (humanChoiceInsensitive == "paper" && computerChoice == "scissors"))
-    {
-        computerScore +=1 ; 
-        console.log("You lose!! You choses" , humanChoice , " and computer choses " , computerChoice , " and " ,computerChoice  , "beats" , humanChoice) ; 
-    }
-    else
-    {
-        humanScore +=1 ; 
-        console.log("It's a Win..Hurray!! You choses" , humanChoice , " and computer choses " , computerChoice , " and " ,humanChoice , "beats" , computerChoice ) ; 
-    }
+
+        console.log("Your Score" , humanScore , "Computer Score" , computerScore) ; 
+        if(humanScore > computerScore)
+        {
+            console.log("Hurray , You win") ; 
+        }
+        else if(computerScore > humanScore){
+            console.log("You lose !! Try again") ; 
+        }
+        else{
+            console.log("It's a tie") ; 
+        }
+
 }
 
-function getComputerSElection()
+function getComputerChoice()
 {
     let noOfChoices = 3 ; 
     let computerSelection ; 
@@ -40,8 +61,15 @@ function getComputerSElection()
     return computerSelection ; 
 }
 
+function getHumanChoice()
+{
+    return prompt("Enter : rock / paper / scissors") ;
+}
+
 // get the user input 
-const humanSelection = prompt("Enter either rock paper or scissors") ; 
-const computerSelection = getComputerSElection()
-// invoke the function playround
-playround(humanSelection , computerSelection)
+
+
+const humanSelection = getHumanChoice()
+const computerSelection = getComputerChoice()
+
+playGround(humanSelection , computerSelection )
