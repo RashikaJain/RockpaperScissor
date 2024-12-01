@@ -1,4 +1,4 @@
-//define the function playround
+// calculate the score of user and computer and print the winner 
 function playGround(humanChoice , computerChoice)
 {
     let computerScore = 0 ; 
@@ -10,7 +10,8 @@ function playGround(humanChoice , computerChoice)
         { 
             console.log("It's a tie..But you played well!!") ; 
         }
-        else if((humanChoiceInsensitive == "rock" && computerChoice == "paper") || (humanChoiceInsensitive== "scissors" && computerChoice == "rock") || 
+        else if((humanChoiceInsensitive == "rock" && computerChoice == "paper") ||
+        (humanChoiceInsensitive== "scissors" && computerChoice == "rock") || 
         (humanChoiceInsensitive == "paper" && computerChoice == "scissors"))
         {
             computerScore +=1 ; 
@@ -42,6 +43,7 @@ function playGround(humanChoice , computerChoice)
 
 }
 
+// gets the value selected by computer
 function getComputerChoice()
 {
     let noOfChoices = 3 ; 
@@ -61,12 +63,11 @@ function getComputerChoice()
     return computerSelection ; 
 }
 
+// gets the human input
 function getHumanChoice()
 {
     return prompt("Enter : rock / paper / scissors") ;
 }
-
-// get the user input 
 
 
 const humanSelection = getHumanChoice()
