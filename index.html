@@ -4,13 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <link href="./style.css" rel="stylesheet">
 </head>
 <body>
+    <div class="result">
+        <span id="humanResult" class="result1">Your Score :</span>
+       <span id="computerResult" class="result1">Computer Score :</span>
+    </div>
+    <div class="choice">
+        <span id="humanChoice"  >You Chose : </span>
+        <span id="computerChoice">Computer Chose : </span>
+    </div>
     <div id="container">
         <button id="rock" class="rps">Rock</button>
         <button id="paper" class="rps">Paper</button>
-        <button id="scissors" class="rps">Scissor</button>
+        <button id="scissors" class="rps">Scissors</button>
     </div>
+    <div id="resultDisplay">The result is : </div>
     <script src="./script.js"></script>
 </body>
 </html>
